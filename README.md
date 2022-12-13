@@ -36,8 +36,8 @@ Source the directory
 ```sh
 source devel/setup.bash
 ```
-If you have problems with nlopt v0.5.4, make try updating cmake. 
-If you have problems with ncollide2d and ncollide3d, update the version in the Config.toml file to 0.25. 
+- If you have problems with nlopt v0.5.4, make try updating cmake. 
+- If you have problems with ncollide2d and ncollide3d, update the version in the Config.toml file to 0.25. 
 
 Then, copy all of the files in the Config folder in this repository to the Config folder in the relaxed_ik_ros1/relaxed_ik_core/config folder. This is for step 5 in the "Getting Started" section in the relaxed_ik_ros1 directions. 
 
