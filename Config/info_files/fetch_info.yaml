@@ -1,0 +1,17 @@
+urdf_file_name: "fetch.urdf"
+fixed_frame: "base_link"
+joint_names: [ [ "torso_lift_joint", "shoulder_pan_joint", "shoulder_lift_joint", "upperarm_roll_joint", "elbow_flex_joint", "forearm_roll_joint", "wrist_flex_joint", "wrist_roll_joint" ] ]
+joint_ordering: [ "torso_lift_joint", "shoulder_pan_joint", "shoulder_lift_joint", "upperarm_roll_joint", "elbow_flex_joint", "forearm_roll_joint", "wrist_flex_joint", "wrist_roll_joint" ]
+ee_fixed_joints: [ "gripper_axis" ]
+starting_config: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+collision_file_name: "fetch_collision.yaml"
+collision_nn_file: "fetch_nn"
+path_to_src: "/home/bryce/relaxed_ik_ros_repo/src/relaxed_ik_ros1/relaxed_ik_core/src/"
+axis_types: [ [ "z", "z", "y", "x", "y", "x", "y", "x" ] ]
+velocity_limits: [ 0.1, 1.256, 1.454, 1.571, 1.521, 1.571, 2.268, 2.268 ]
+joint_limits: [ [0.0,0.38615], [-1.6056,1.6056], [-1.221,1.518], [-15.0,15.0], [-2.251,2.251], [-15.0,15.0], [-2.16,2.16], [-15.0,15.0] ]
+displacements: [ [ [0.119525,0.0,0.34858], [0.117,0.0,0.06], [0.219,0.0,0.0], [0.133,0.0,0.0], [0.197,0.0,0.0], [0.1245,0.0,0.0], [0.1385,0.0,0.0], [0.16645,0.0,0.0] ] ]
+disp_offsets: [ [-0.086875,0.0,0.37743] ]
+rot_offsets: [ [ [-6.123e-17,0.0,0.0], [0.0,0.0,0.0], [0.0,0.0,0.0], [0.0,0.0,0.0], [0.0,0.0,0.0], [0.0,0.0,0.0], [0.0,0.0,0.0], [0.0,0.0,0.0], [0.0,0.0,0.0] ] ]
+joint_types: [ [ "prismatic", "revolute", "revolute", "continuous", "revolute", "continuous", "revolute", "continuous" ] ]
+joint_state_define_func_file: "fetch_joint_state_define"

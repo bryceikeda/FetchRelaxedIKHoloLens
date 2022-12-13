@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FetchRelaxedIKScene.unity
     guid: a19d518885c3e094aa64cf9ea5952c05
+  - enabled: 0
+    path: Assets/Scenes/IPTestScene.unity
+    guid: 61e7087faa709644ba8513d41952a818
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 65442428d869d114fa636f998481d738, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: db793577a1b423842827d3c27e2325d7, type: 2}
