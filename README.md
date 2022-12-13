@@ -1,5 +1,7 @@
 # FetchRelaxedIKHoloLens2
-This is a Unity project I created to show how you could control a robot arm in Unity using inverse kinematics in ROS. Specifically, I use [relaxedIK](https://github.com/uwgraphics/relaxed_ik_ros1) to compute the joint positions given an end-effector position. 
+This is a Unity project I created to show how you can control a robot arm in Unity using inverse kinematics calculations from ROS. Specifically, I use relaxedIK to compute the joint positions given an end-effector position, and send that to an AR visualization on the HoloLens 2.
+
+Note: If you compile relaxedIK using windows, it will output a dll that you can use in Unity rather than sending and receiving information using ROS. The performance is much better. However, I was unable compile the repository. It should work with most other robots that they already compiled/built it for in their [Unity repository](https://github.com/uwgraphics/relaxed_ik_unity.git). Setup will probably be slightly different.
 
 ![fetch_gif](https://user-images.githubusercontent.com/56240638/207370039-4400c132-fe11-4ada-9e62-8e1ce592814c.gif)
 
