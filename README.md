@@ -1,6 +1,16 @@
 # FetchRelaxedIKHoloLens2
 This is a Unity project I created to show how you could control a robot arm in Unity using inverse kinematics in ROS. Specifically, I use [relaxedIK](https://github.com/uwgraphics/relaxed_ik_ros1) to compute the joint positions given an end-effector position. 
 
+## Requirements
+- Unity 2020.3.38f1
+- [MRTK v2.7.3](https://github.com/microsoft/MixedRealityToolkit-Unity/releases) with OpenXR, Examples, Extensions, Foundation, Standard Assets, Test Utilities, and Tools
+- [ROS TCP Connector v0.7.0](https://github.com/Unity-Technologies/ROS-TCP-Connector)
+- [URDF Importer v0.5.2](https://github.com/Unity-Technologies/URDF-Importer)
+- [ROS TCP Endpoint](https://github.com/Unity-Technologies/ROS-TCP-Endpoint)
+- Holographic remoting on the HoloLens 2
+- ROS Noetic
+- [relaxedIK](https://github.com/uwgraphics/relaxed_ik_ros1)
+
 # Setup
 ## RelaxedIK
 In your ROS workspace create a new folder. 
@@ -32,6 +42,12 @@ If you have problems with ncollide2d and ncollide3d, update the version in the C
 Then, copy all of the files in the Config folder in this repository to the Config folder in the relaxed_ik_ros1/relaxed_ik_core/config folder. This is for step 5 in the "Getting Started" section in the relaxed_ik_ros1 directions. 
 
 Finally, follow all of the build directions in [relaxedIK](https://github.com/uwgraphics/relaxed_ik_ros1). You will need to download and use rust. 
+## Unity
+- Open up the Unity project
+- Open up the FetchRelaxedIKScene
+- Open up the FetchRelaxedIKScene
+- Update your IP address in the Robotics tab
+- Enable holographic remoting for play mode under the Mixed Reality tab, adding the IP address of your Hololens holographic play mode app
 
 # Running the Application
 ## ROS
@@ -52,8 +68,5 @@ Set a ROS parameter to start the simulation:
 rosparam set /simulation_time go
 ```
 ## Unity
-- Open up the FetchRelaxedIKScene
-- Update your IP address in the Robotics tab
-- Enable holographic remoting for play mode under the Mixed Reality tab, adding the IP address of your Hololens holographic play mode app
 - Press play on the Unity application
 
