@@ -1,6 +1,8 @@
 # FetchRelaxedIKHoloLens2
 This is a Unity project I created to show how you could control a robot arm in Unity using inverse kinematics in ROS. Specifically, I use [relaxedIK](https://github.com/uwgraphics/relaxed_ik_ros1) to compute the joint positions given an end-effector position. 
 
+![fetch_gif](https://user-images.githubusercontent.com/56240638/207370039-4400c132-fe11-4ada-9e62-8e1ce592814c.gif)
+
 ## Requirements
 - Unity 2020.3.38f1
 - [MRTK v2.7.3](https://github.com/microsoft/MixedRealityToolkit-Unity/releases) with OpenXR, Examples, Extensions, Foundation, Standard Assets, Test Utilities, and Tools
