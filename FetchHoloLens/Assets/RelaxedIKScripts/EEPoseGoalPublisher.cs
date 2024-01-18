@@ -29,7 +29,7 @@ public class EEPoseGoalPublisher : MonoBehaviour
     // position of the robots gripper. This will be (0, 0, 0)
     // which is tracked by the child of the poseRef prefab
     [SerializeField]
-    GameObject poseRefPrefab; 
+    GameObject poseRefGameObject; 
 
     // List of messages with EE goals for each EE
     PoseMsg[] poseMsgs;
@@ -38,6 +38,11 @@ public class EEPoseGoalPublisher : MonoBehaviour
     // Since the HoloLens main camera alway starts at (0,0,0)
     [SerializeField]
     GameObject base_link;
+
+    [SerializeField]
+    PointMsg eeInitialPositionROSCoord; 
+    [SerializeField]
+    QuaternionMsg eeInitialOrientationROSCoord; 
 
     void Start()
     {
@@ -48,22 +53,18 @@ public class EEPoseGoalPublisher : MonoBehaviour
 
         // Add PoseMsg for each EELink
         poseMsgs = new PoseMsg[EELinks.Count];
-
         
 
         foreach (Transform EELink in EELinks)
         {
             // Instantiate the pose reference at the starting position of the EElink which is (0, 0, 0) for relaxed IK
-            GameObject poseRef = Instantiate(poseRefPrefab, base_link.transform) as GameObject;
-            poseRef.transform.position = EELink.transform.position;
-            poseRef.transform.rotation = EELink.transform.rotation;
-
-            // Get granchild which is End effector game object
-            GameObject gripper = poseRef.transform.GetChild(0).GetChild(0).gameObject;
+            GameObject poseRef = Instantiate(poseRefGameObject, base_link.transform) as GameObject;
+            poseRef.transform.localPosition = eeInitialPositionROSCoord.From<FLU>();
+            poseRef.transform.localRotation = eeInitialOrientationROSCoord.From<FLU>(); 
 
             // If the user lets go of the gripper, put it back at the current position of the EELink
-            gripper.GetComponent<ResetPosition>().EELink = EELink;
-            manipulableGrippers.Add(gripper);
+            poseRef.GetComponent<ResetPosition>().EELink = EELink;
+            manipulableGrippers.Add(poseRef);
         }
     }
 
@@ -73,11 +74,19 @@ public class EEPoseGoalPublisher : MonoBehaviour
 
         for (int i = 0; i < manipulableGrippers.Count; i++)
         {
+            var grip_pos = manipulableGrippers[i].transform.localPosition.To<FLU>();
+            var grip_ori = manipulableGrippers[i].transform.localRotation.To<FLU>();
+            Debug.Log(grip_pos);
+            Debug.Log(grip_ori);
             poseMsgs[i] = new PoseMsg
             {
                 // Transform from Unity coordinates to ROS coordinates
-                position = manipulableGrippers[i].transform.localPosition.To<FLU>(),
-                orientation = manipulableGrippers[i].transform.localRotation.To<FLU>()
+                position = new PointMsg(grip_pos.x, grip_pos.y, grip_pos.z),
+                orientation = new QuaternionMsg(grip_ori.x, grip_ori.y, grip_ori.z, - grip_ori.w),
+                //position = new PointMsg(grip_pos.x + .89347f, grip_pos.y - .3215f, grip_pos.z + .40858f),
+                // orientation = new QuaternionMsg(grip_ori.x - 0.7071f, grip_ori.y, grip_ori.z, - grip_ori.w - 0.2928945f),
+                // position = new PointMsg(.89347f, -.3215f, .40858f),
+                // orientation = new QuaternionMsg(-0.7071f, 0.0f, 0.0f, 0.7071f),
             };
         }
 

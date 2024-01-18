@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResetPosition : MonoBehaviour
 {
     public Transform EELink;
-    private bool Lock = true; 
+    private bool Lock = false; 
 
     void Update()
     {
