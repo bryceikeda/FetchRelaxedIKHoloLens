@@ -4,6 +4,10 @@ public class JointController : MonoBehaviour
     public enum JointType { Prismatic, Continuous, Revolute};
     public enum MovementAxis { x, y, z };
 
+
+    [SerializeField]
+    public float jointValue;
+
     [SerializeField]
     public JointType jointType;
 
@@ -28,8 +32,10 @@ public class JointController : MonoBehaviour
     {
         jointTransform = gameObject.transform;
         prismaticStartPos = jointTransform.localPosition;
-        rotationStartDeg = jointTransform.localEulerAngles; 
+        rotationStartDeg = jointTransform.localEulerAngles;    
+        // SetJointPosition(jointValue);
     }
+
     public void SetJointPosition(float jointValue)
     {
         if (jointType == JointType.Prismatic)

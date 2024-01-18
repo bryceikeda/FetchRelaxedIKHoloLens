@@ -15,17 +15,20 @@ namespace RosMessageTypes.RelaxedIkRos1
 
         public Std.HeaderMsg header;
         public Geometry.PoseMsg[] ee_poses;
+        public Geometry.TwistMsg[] tolerances;
 
         public EEPoseGoalsMsg()
         {
             this.header = new Std.HeaderMsg();
             this.ee_poses = new Geometry.PoseMsg[0];
+            this.tolerances = new Geometry.TwistMsg[0];
         }
 
-        public EEPoseGoalsMsg(Std.HeaderMsg header, Geometry.PoseMsg[] ee_poses)
+        public EEPoseGoalsMsg(Std.HeaderMsg header, Geometry.PoseMsg[] ee_poses, Geometry.TwistMsg[] tolerances)
         {
             this.header = header;
             this.ee_poses = ee_poses;
+            this.tolerances = tolerances;
         }
 
         public static EEPoseGoalsMsg Deserialize(MessageDeserializer deserializer) => new EEPoseGoalsMsg(deserializer);
@@ -34,6 +37,7 @@ namespace RosMessageTypes.RelaxedIkRos1
         {
             this.header = Std.HeaderMsg.Deserialize(deserializer);
             deserializer.Read(out this.ee_poses, Geometry.PoseMsg.Deserialize, deserializer.ReadLength());
+            deserializer.Read(out this.tolerances, Geometry.TwistMsg.Deserialize, deserializer.ReadLength());
         }
 
         public override void SerializeTo(MessageSerializer serializer)
@@ -41,13 +45,16 @@ namespace RosMessageTypes.RelaxedIkRos1
             serializer.Write(this.header);
             serializer.WriteLength(this.ee_poses);
             serializer.Write(this.ee_poses);
+            serializer.WriteLength(this.tolerances);
+            serializer.Write(this.tolerances);
         }
 
         public override string ToString()
         {
             return "EEPoseGoalsMsg: " +
             "\nheader: " + header.ToString() +
-            "\nee_poses: " + System.String.Join(", ", ee_poses.ToList());
+            "\nee_poses: " + System.String.Join(", ", ee_poses.ToList()) +
+            "\ntolerances: " + System.String.Join(", ", tolerances.ToList());
         }
 
 #if UNITY_EDITOR
