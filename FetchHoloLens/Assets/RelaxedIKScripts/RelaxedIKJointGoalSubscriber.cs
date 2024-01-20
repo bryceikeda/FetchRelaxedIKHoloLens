@@ -1,4 +1,4 @@
-using RosMessageTypes.RelaxedIkRos1;
+using RosMessageTypes.Sensor;
 using Unity.Robotics.ROSTCPConnector;
 using UnityEngine;
 
@@ -18,20 +18,19 @@ public class RelaxedIKJointGoalSubscriber : MonoBehaviour
     {
         // Get ROS connection static instance
         m_Ros = ROSConnection.GetOrCreateInstance();
-        m_Ros.Subscribe<JointAnglesMsg>(m_TopicName, SetJointAngles);
+        m_Ros.Subscribe<JointStateMsg>(m_TopicName, SetJointAngles);
     }
 
 
     // Hardcoded for the Fetch robot
-    void SetJointAngles(JointAnglesMsg msg)
+    void SetJointAngles(JointStateMsg msg)
     {
-        m_OrderedJoints[0].SetJointPosition((float)msg.angles.data[0]);
-        m_OrderedJoints[2].SetJointPosition((float)msg.angles.data[2]);
-        m_OrderedJoints[4].SetJointPosition((float)msg.angles.data[4]);
-        m_OrderedJoints[6].SetJointPosition((float)msg.angles.data[6]);
-        m_OrderedJoints[1].SetJointPosition(-(float)msg.angles.data[1]);
-        m_OrderedJoints[3].SetJointPosition(-(float)msg.angles.data[3]);
-        m_OrderedJoints[5].SetJointPosition(-(float)msg.angles.data[5]);
-        m_OrderedJoints[7].SetJointPosition(-(float)msg.angles.data[7]);
+        m_OrderedJoints[0].SetJointPosition(-(float)msg.position[0]);
+        m_OrderedJoints[2].SetJointPosition(-(float)msg.position[2]);
+        m_OrderedJoints[4].SetJointPosition(-(float)msg.position[4]);
+        m_OrderedJoints[6].SetJointPosition(-(float)msg.position[6]);
+        m_OrderedJoints[1].SetJointPosition((float)msg.position[1]);
+        m_OrderedJoints[3].SetJointPosition((float)msg.position[3]);
+        m_OrderedJoints[5].SetJointPosition((float)msg.position[5]);
     }
 }
