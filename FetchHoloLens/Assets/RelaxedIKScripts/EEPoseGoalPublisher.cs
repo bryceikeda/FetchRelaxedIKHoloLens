@@ -64,7 +64,7 @@ public class EEPoseGoalPublisher : MonoBehaviour
 
             // If the user lets go of the gripper, put it back at the current position of the EELink
             poseRef.GetComponent<ResetPosition>().EELink = EELink;
-            manipulableGrippers.Add(poseRef);
+            manipulableGrippers.Add(poseRef.transform.GetChild(0).gameObject);
         }
     }
 
@@ -74,19 +74,18 @@ public class EEPoseGoalPublisher : MonoBehaviour
 
         for (int i = 0; i < manipulableGrippers.Count; i++)
         {
-            var grip_pos = manipulableGrippers[i].transform.localPosition.To<FLU>();
-            var grip_ori = manipulableGrippers[i].transform.localRotation.To<FLU>();
-            Debug.Log(grip_pos);
-            Debug.Log(grip_ori);
+
+            var pos = base_link.transform.InverseTransformPoint(manipulableGrippers[i].transform.position);
+            var rot = Quaternion.Inverse(base_link.transform.rotation) * manipulableGrippers[i].transform.rotation;
+
+            var grip_pos = pos.To<FLU>();
+            var grip_ori = rot.To<FLU>();
+
             poseMsgs[i] = new PoseMsg
             {
                 // Transform from Unity coordinates to ROS coordinates
                 position = new PointMsg(grip_pos.x, grip_pos.y, grip_pos.z),
-                orientation = new QuaternionMsg(grip_ori.x, grip_ori.y, grip_ori.z, -grip_ori.w),
-                //position = new PointMsg(grip_pos.x + .89347f, grip_pos.y - .3215f, grip_pos.z + .40858f),
-                // orientation = new QuaternionMsg(grip_ori.x - 0.7071f, grip_ori.y, grip_ori.z, - grip_ori.w - 0.2928945f),
-                // position = new PointMsg(.89347f, -.3215f, .40858f),
-                // orientation = new QuaternionMsg(-0.7071f, 0.0f, 0.0f, 0.7071f),
+                orientation = new QuaternionMsg(grip_ori.x, grip_ori.y, grip_ori.z, grip_ori.w),
             };
         }
 
