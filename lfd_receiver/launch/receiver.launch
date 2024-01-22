@@ -1,0 +1,3 @@
+<launch>
+    <node name="receiver" pkg="lfd_receiver" type="receiver.py" output="screen"/>
+</launch>
