@@ -83,9 +83,22 @@ roslaunch relaxed_ik_ros1 demo.launch
 ```
 Launch the ros_tcp_endpoint by typing the following command adding in your own IP address:
 ```sh
-roslaunch ros_tcp_endpoint endpoint.launch tcp_ip:=127.0.0.1 
+roslaunch ros_tcp_endpoint endpoint.launch tcp_ip:=xxx.xxx.x.x tcp_port:=10000
+```
+
+Run lfd helper package if using it:
+```
+rosrun lfd_receiver record.py
 ```
 
 ## Unity
+- Open the HandTrackingScene using holographic remoting
 - Press play on the Unity application
-- Grab the Fetch robot's end effector and move it around. 
+- Look at the QR code. If the scene does not align correctly, press the Reset World Origin button on the menu.
+- To send a service message to ROS to begin recording hit the Begin Recording button.
+- Move your hand around and the end effector should follow it. 
+
+## Places to edit
+To edit the placement of the end effector on the hand oen the Prefabs/HandTrackedPoseReference game object. Then move or rotate the Gripper child object. If you would like to test this in the scene, press play in Unity and hold space to show the right hand if not using the Hololens. Then move the gripper that is attached to the HandTrackedPoseReference which is a child object of the torso_lift_link. 
+
+To edit the world position of the fetch robot, move the MoveThisToAlignRobotWithRealRobot game object in the QR/QROrigin game object in the heirarchy. 
