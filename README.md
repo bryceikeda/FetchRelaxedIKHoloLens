@@ -90,4 +90,3 @@ If you are having further connection difficulties, you can reference the followi
 
 ### Holographic Remoting
 If you would like to run this on the HoloLens, you can use the Holographic Remoting feature in Unity. To do this, you will need to download the Holographic Remoting Player app on the HoloLens then, using the IP address displayed in the app, update the IP address in the Mixed Reality -> Remoting -> Holographic Remoting for Play Mode tab in the Unity project. Then, enable Holographic remoting and press play.
->>>>>>> Stashed changes
