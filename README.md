@@ -12,8 +12,6 @@ This is a Unity project I created to show how you can control a robot arm in Uni
 - Holographic remoting on the HoloLens 2
 - WSL2
 - Docker Desktop
-- [relaxedIK](https://github.com/uwgraphics/relaxed_ik_ros1)
-
 
 ## Initial Setup
 Clone the files in this branch
