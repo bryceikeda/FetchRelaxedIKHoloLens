@@ -1,12 +1,12 @@
 # Docker Setup
 ## Building Docker
 ```
-make build_ros_arcade
+make build_ros_noetic
 ```
 
 ## Running Docker
 ```
-make run_ros_arcade
+make run_ros_noetic
 ```
 
 ## Reopening container
@@ -17,7 +17,7 @@ docker container ls -a
 
 Then start the container
 ```
-make start_ros_arcade <First four digits of Container ID>
+make start_ros_noetic <First four digits of Container ID>
 ```
 
 # Running relaxed_ik
