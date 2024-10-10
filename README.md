@@ -52,7 +52,7 @@ In one window run relaxed_ik
 ```
 roslaunch relaxed_ik_ros1 demo.launch
 ```
-<<<<<<< Updated upstream
+
 Launch the ros_tcp_endpoint by typing the following command adding in your own IP address:
 ```sh
 roslaunch ros_tcp_endpoint endpoint.launch tcp_ip:=127.0.0.1 
@@ -61,7 +61,6 @@ roslaunch ros_tcp_endpoint endpoint.launch tcp_ip:=127.0.0.1
 ## Unity
 - Press play on the Unity application
 - Grab the Fetch robot's end effector and move it around. 
-=======
 
 To connect to Unity, in another window run
 ```
