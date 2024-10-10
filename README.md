@@ -1,8 +1,6 @@
 # FetchRelaxedIKHoloLens2
 This is a Unity project I created to show how you can control a robot arm in Unity using inverse kinematics calculations from ROS. Specifically, I use relaxedIK to compute the joint positions given an end-effector position, and send that to an AR visualization on the HoloLens 2.
 
-Note: If you compile relaxedIK using windows, it will output a dll that you can use in Unity rather than sending and receiving information using ROS. The performance is much better. However, I was unable compile the repository. It should work with most other robots that they already compiled/built it for in their [Unity repository](https://github.com/uwgraphics/relaxed_ik_unity.git). Setup will probably be slightly different.
-
 ![fetch_gif](https://user-images.githubusercontent.com/56240638/207370039-4400c132-fe11-4ada-9e62-8e1ce592814c.gif)
 
 ## Requirements
@@ -12,75 +10,49 @@ Note: If you compile relaxedIK using windows, it will output a dll that you can 
 - [URDF Importer v0.5.2](https://github.com/Unity-Technologies/URDF-Importer)
 - [ROS TCP Endpoint](https://github.com/Unity-Technologies/ROS-TCP-Endpoint)
 - Holographic remoting on the HoloLens 2
-- ROS Noetic
+- WSL2
+- Docker Desktop
 - [relaxedIK](https://github.com/uwgraphics/relaxed_ik_ros1)
 
-# Setup
-## RelaxedIK
-Create a new ROS workspace folder.
-```sh
-mkdir relaxed_ik
-cd relaxed_ik/
+
+## Initial Setup
+Clone the files in this branch
 ```
-Clone the following repositories into a src directory
-```sh
-git clone --recuse-submodules https://github.com/uwgraphics/relaxed_ik_ros1.git src 
-cd src
-git clone https://github.com/Unity-Technologies/ROS-TCP-Endpoint.git
+git clone -b Unity_ROS https://github.com/YY-GX/ARCADE.git
 ```
 
-If in WSL2 install rust like so:
+Move the ROS folder to your WSL2 home directory and keep the Unity folder on your windows machine.
+
+## ROS Setup
+The ROS files are run in a Docker container to avoid any dependency issues.
+
+### Building the Docker container
 ```
-sudo apt-get update
-sudo apt-get install curl
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source $HOME/.cargo/env
-echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
+make build_ros_arcade
 ```
 
-If in Ubuntu install rust like so:
+### Running the container
 ```
-sudo apt-get update
-sudo apt-get install curl
-curl https://sh.rustup.rs -sSf | bash -s -- -y
-source $HOME/.cargo/env
-echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
+make run_ros_arcade
 ```
 
-Build relaxed_ik_core:
+### Reopening the container
+Check the container ID first four digits
 ```
-cd relaxed_ik_ros1/relaxed_ik_core/
-cargo build
-```
-
-Use fetch.yaml settings:
-```
-cp configs/example_settings/fetch.yaml configs/settings.yaml
+docker container ls -a
 ```
 
-Build the directory
-```sh
-cd ..
-catkin build
+Then start the container
 ```
-Source the directory
-```sh
-source devel/setup.bash
+make start_ros_arcade <First four digits of Container ID>
 ```
 
-## Unity
-- Open up the Unity project
-- Open up the FetchRelaxedIKScene
-- Open up the FetchRelaxedIKScene
-- Update your IP address in the Robotics tab
-- Enable holographic remoting for play mode under the Mixed Reality tab, adding the IP address of your Hololens holographic play mode app
-
-# Running the Application
-## ROS
-Launch the Relaxed IK solver by typing the following command:
-```sh
+### Running relaxed_ik
+In one window run relaxed_ik
+```
 roslaunch relaxed_ik_ros1 demo.launch
 ```
+<<<<<<< Updated upstream
 Launch the ros_tcp_endpoint by typing the following command adding in your own IP address:
 ```sh
 roslaunch ros_tcp_endpoint endpoint.launch tcp_ip:=127.0.0.1 
@@ -89,3 +61,34 @@ roslaunch ros_tcp_endpoint endpoint.launch tcp_ip:=127.0.0.1
 ## Unity
 - Press play on the Unity application
 - Grab the Fetch robot's end effector and move it around. 
+=======
+
+To connect to Unity, in another window run
+```
+hostname -I 
+```
+
+Take the ip address, in my case it was 172.17.0.2, and input that as the tcp_ip
+
+```
+roslaunch ros_tcp_endpoint endpoint.launch tcp_ip:=172.17.0.2 tcp_ip:=10000
+```
+
+## Unity Setup
+Open the Unity project. Within the /Assets/Scenes folder there are two scenes.
+
+1. HandTrackingScene: Tracks the user's hand and sends the data to ROS, the configuration utilized by ARCADE.
+2. ManipulateEEByHandScene: Allows the user to manipulate the end effector of the robot by grabbing the robot's hand and moving it around.
+
+Press play look at the QR code to align the scene to the QR. The project should connect to the docker container. If not, then make sure you are using the correct IP address by typing `hostname -I` in the WSL2 terminal and using the correct IP address in the Unity project, within the ROSConnectionPrefab.
+
+Without the Hololens, the space bar can be used to simulate a hand.
+
+### Aligning the virtual robot to the real robot
+To align the virtual robot to the real robot, make sure you have set the QR code in a static position relative to the robot. Then, move the MoveThisToAlignRobotWithRealRobot object in the QR/QROrigin object in the hierarchy. Write down the new Position and Rotation values and update the values in the MoveThisToAlignRobotWithRealRobot object in the hierarchy after stopping the game so that the values persist.
+
+If you are having further connection difficulties, you can reference the following videos for help: https://www.youtube.com/watch?v=3KMhdGV6Ql8 and https://www.youtube.com/watch?v=3KMhdGV6Ql8
+
+### Holographic Remoting
+If you would like to run this on the HoloLens, you can use the Holographic Remoting feature in Unity. To do this, you will need to download the Holographic Remoting Player app on the HoloLens then, using the IP address displayed in the app, update the IP address in the Mixed Reality -> Remoting -> Holographic Remoting for Play Mode tab in the Unity project. Then, enable Holographic remoting and press play.
+>>>>>>> Stashed changes
