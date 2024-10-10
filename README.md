@@ -14,9 +14,9 @@ This is a Unity project I created to show how you can control a robot arm in Uni
 - Docker Desktop
 
 ## Initial Setup
-Clone the files in this branch
+Clone the files in this repository
 ```
-git clone -b Unity_ROS https://github.com/YY-GX/ARCADE.git
+git clone https://github.com/bryceikeda/FetchRelaxedIKHoloLens.git
 ```
 
 Move the ROS folder to your WSL2 home directory and keep the Unity folder on your windows machine.
@@ -26,12 +26,12 @@ The ROS files are run in a Docker container to avoid any dependency issues.
 
 ### Building the Docker container
 ```
-make build_ros_arcade
+make build_ros_noetic
 ```
 
 ### Running the container
 ```
-make run_ros_arcade
+make run_ros_noetic
 ```
 
 ### Reopening the container
@@ -42,7 +42,7 @@ docker container ls -a
 
 Then start the container
 ```
-make start_ros_arcade <First four digits of Container ID>
+make start_ros_noetic <First four digits of Container ID>
 ```
 
 ### Running relaxed_ik
