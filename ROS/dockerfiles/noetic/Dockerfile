@@ -116,5 +116,7 @@ COPY dockerfiles/noetic/assets/terminator_config /root/.config/terminator/config
 
 # Setup entrypoint
 COPY dockerfiles/noetic/assets/entrypoint_setup.sh /
+RUN chmod +x /entrypoint_setup.sh
+
 ENTRYPOINT ["/entrypoint_setup.sh"]
 CMD ["terminator"]
