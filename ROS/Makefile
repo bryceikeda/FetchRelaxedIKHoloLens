@@ -15,7 +15,7 @@ help: ## This help.
 
 ## BUILD
 build_ros_noetic: ## [Build] Build ROS Noetic base container. "make build_ros_noetic"
-	docker build -t ros1/ros-noetic:ARCADE -f dockerfiles/noetic/Dockerfile .
+	docker build -t ros1/ros-noetic:ROS -f dockerfiles/noetic/Dockerfile .
 	@printf "\n\033[92mDocker Image: ros1/ros-noetic:base\033[0m\n"
 
 # RUN
