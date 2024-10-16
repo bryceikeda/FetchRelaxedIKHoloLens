@@ -61,22 +61,7 @@ hostname -I
 Take the ip address, in my case it was 172.17.0.2, and input that as the tcp_ip
 
 ```
-roslaunch ros_tcp_endpoint endpoint.launch tcp_ip:=172.17.0.2 tcp_ip:=10000
-```
-
-## Unity
-- Press play on the Unity application
-- Grab the Fetch robot's end effector and move it around. 
-
-To connect to Unity, in another window run
-```
-hostname -I 
-```
-
-Take the ip address, in my case it was 172.17.0.2, and input that as the tcp_ip
-
-```
-roslaunch ros_tcp_endpoint endpoint.launch tcp_ip:=172.17.0.2 tcp_ip:=10000
+roslaunch ros_tcp_endpoint endpoint.launch tcp_ip:=172.17.0.2 tcp_port:=10000
 ```
 
 ## Unity Setup
@@ -94,5 +79,5 @@ To align the virtual robot to the real robot, make sure you have set the QR code
 
 If you are having further connection difficulties, you can reference the following videos for help: https://www.youtube.com/watch?v=3KMhdGV6Ql8 and https://www.youtube.com/watch?v=3KMhdGV6Ql8
 
-### Holographic Remoting
+### Viewing with a Hololens via Holographic Remoting
 If you would like to run this on the HoloLens, you can use the Holographic Remoting feature in Unity. To do this, you will need to download the Holographic Remoting Player app on the HoloLens then, using the IP address displayed in the app, update the IP address in the Mixed Reality -> Remoting -> Holographic Remoting for Play Mode tab in the Unity project. Then, enable Holographic remoting and press play.
