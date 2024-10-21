@@ -2,6 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/FetchHololens.gitignore
 #
+FetchHololens/[Ll]ibrary/
+FetchHololens/[Tt]emp/
+FetchHololens/[Oo]bj/
+FetchHololens/[Bb]uild/
+FetchHololens/[Bb]uilds/
+FetchHololens/[Ll]ogs/
+FetchHololens/[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
