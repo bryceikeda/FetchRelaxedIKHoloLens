@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "packages": {
+    "com.microsoft.mixedreality.openxr": {
+      "tarball": {
+        "hash": "2ee35a5c3070",
+        "mtime": 1729040096182,
+        "size": 11917159,
+        "localPath": "D:\\UnityResearch\\FetchRelaxedIKHoloLens\\FetchHololens\\Packages\\MixedReality\\com.microsoft.mixedreality.openxr-1.8.1.tgz"
+      }
+    },
+    "com.microsoft.mixedreality.toolkit.examples": {
+      "tarball": {
+        "hash": "42f661a9fb5b",
+        "mtime": 1729040096403,
+        "size": 55195848,
+        "localPath": "D:\\UnityResearch\\FetchRelaxedIKHoloLens\\FetchHololens\\Packages\\MixedReality\\com.microsoft.mixedreality.toolkit.examples-2.8.3.tgz"
+      }
+    },
+    "com.microsoft.mixedreality.toolkit.extensions": {
+      "tarball": {
+        "hash": "84fe3e76e9b7",
+        "mtime": 1729040096408,
+        "size": 1131406,
+        "localPath": "D:\\UnityResearch\\FetchRelaxedIKHoloLens\\FetchHololens\\Packages\\MixedReality\\com.microsoft.mixedreality.toolkit.extensions-2.8.3.tgz"
+      }
+    },
+    "com.microsoft.mixedreality.toolkit.foundation": {
+      "tarball": {
+        "hash": "f2323a9b7aec",
+        "mtime": 1729040096457,
+        "size": 11691469,
+        "localPath": "D:\\UnityResearch\\FetchRelaxedIKHoloLens\\FetchHololens\\Packages\\MixedReality\\com.microsoft.mixedreality.toolkit.foundation-2.8.3.tgz"
+      }
+    },
+    "com.microsoft.mixedreality.toolkit.standardassets": {
+      "tarball": {
+        "hash": "aab256284dc6",
+        "mtime": 1729040096484,
+        "size": 5328617,
+        "localPath": "D:\\UnityResearch\\FetchRelaxedIKHoloLens\\FetchHololens\\Packages\\MixedReality\\com.microsoft.mixedreality.toolkit.standardassets-2.8.3.tgz"
+      }
+    },
+    "com.microsoft.mixedreality.toolkit.testutilities": {
+      "tarball": {
+        "hash": "b1a5df198759",
+        "mtime": 1729040096485,
+        "size": 18590,
+        "localPath": "D:\\UnityResearch\\FetchRelaxedIKHoloLens\\FetchHololens\\Packages\\MixedReality\\com.microsoft.mixedreality.toolkit.testutilities-2.8.3.tgz"
+      }
+    },
+    "com.microsoft.mixedreality.toolkit.tools": {
+      "tarball": {
+        "hash": "650cce437d92",
+        "mtime": 1729040096492,
+        "size": 2111115,
+        "localPath": "D:\\UnityResearch\\FetchRelaxedIKHoloLens\\FetchHololens\\Packages\\MixedReality\\com.microsoft.mixedreality.toolkit.tools-2.8.3.tgz"
+      }
+    },
+    "com.microsoft.spatialaudio.spatializer.unity": {
+      "tarball": {
+        "hash": "ef649958b4dc",
+        "mtime": 1729040096850,
+        "size": 83146145,
+        "localPath": "D:\\UnityResearch\\FetchRelaxedIKHoloLens\\FetchHololens\\Packages\\MixedReality\\com.microsoft.spatialaudio.spatializer.unity-2.0.47.tgz"
+      }
+    }
+  }
+}

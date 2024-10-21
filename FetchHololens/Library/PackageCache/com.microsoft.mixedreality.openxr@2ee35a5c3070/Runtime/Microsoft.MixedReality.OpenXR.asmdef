@@ -1,0 +1,63 @@
+{
+    "name": "Microsoft.MixedReality.OpenXR",
+    "rootNamespace": "Microsoft.MixedReality.OpenXR",
+    "references": [
+        "Unity.InputSystem",
+        "Unity.XR.ARFoundation",
+        "Unity.XR.ARSubsystems",
+        "Unity.XR.Management",
+        "Unity.XR.Management.Editor",
+        "Unity.XR.OpenXR",
+        "Unity.XR.OpenXR.Editor"
+    ],
+    "includePlatforms": [
+        "Android",
+        "Editor",
+        "WSA",
+        "WindowsStandalone64"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "1.4.0",
+            "define": "INPUT_SYSTEM_1_4_OR_NEWER"
+        },
+        {
+            "name": "com.unity.xr.openxr",
+            "expression": "1.8.0",
+            "define": "UNITY_OPENXR_1_8_OR_NEWER"
+        },
+        {
+            "name": "com.unity.xr.arfoundation",
+            "expression": "5.0.0",
+            "define": "USE_ARFOUNDATION_5_OR_NEWER"
+        },
+        {
+            "name": "Unity",
+            "expression": "2020.3.43f1",
+            "define": "UNITY_2020_3_43_OR_NEWER"
+        },
+        {
+            "name": "Unity",
+            "expression": "2021.3.16f1",
+            "define": "UNITY_2021_3_16_OR_NEWER"
+        },
+        {
+            "name": "Unity",
+            "expression": "2022.2.1f1",
+            "define": "UNITY_2022_2_1_OR_NEWER"
+        },
+        {
+            "name": "Unity",
+            "expression": "2023.1.0a23",
+            "define": "UNITY_2023_1_0A23_OR_NEWER"
+        }
+    ],
+    "noEngineReferences": false
+}
