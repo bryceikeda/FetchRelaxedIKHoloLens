@@ -1,21 +1,19 @@
 fileFormatVersion: 2
-guid: 50383614035c4694f863a63bfa6345c5
+guid: 5dd49b3eacc540408c98eee0de38e0f1
+timeCreated: 1484171297
+licenseType: Pro
 TrueTypeFontImporter:
-  externalObjects: {}
-  serializedVersion: 4
+  serializedVersion: 2
   fontSize: 16
   forceTextureCase: -2
-  characterSpacing: 0
-  characterPadding: 1
+  characterSpacing: 1
+  characterPadding: 0
   includeFontData: 1
-  fontNames:
-  - Bangers
+  use2xBehaviour: 0
+  fontNames: []
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
-  ascentCalculationMode: 1
-  useLegacyBoundsCalculation: 0
-  shouldRoundAdvanceValue: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
