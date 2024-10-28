@@ -50,6 +50,10 @@ ExportedObj/
 # FetchHololens3D generated file on crash reports
 sysinfo.txt
 
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
 # Builds
 *.apk
 *.aab
