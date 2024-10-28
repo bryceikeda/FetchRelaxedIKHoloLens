@@ -47,14 +47,6 @@ ExportedObj/
 *.opendb
 *.VC.db
 
-# FetchHololens3D generated meta files
-*.pidb.meta
-*.pdb.meta
-*.mdb.meta
-*.meta
-*.dae.meta
-*.cs.meta
-
 # FetchHololens3D generated file on crash reports
 sysinfo.txt
 
